@@ -11,37 +11,60 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const [total, setTotal] = useState(0);
+
   console.log('work');
 
-  const leaveFeedback = options => {};
+  const leaveFeedback = options => {
+    console.log(options);
+
+    switch (options) {
+      case 'good':
+        setGood(good + 1);
+        break;
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
+      default:
+        return;
+    }
+
+    // if (options === good) {
+    //   setGood(options + 1);
+    // }
+  };
 
   useEffect(() => {
-    let total = good + neutral + bad;
+    // total = good + neutral + bad;
+    setTotal(good + neutral + bad);
     console.log(total);
-  }, [good, neutral, bad]);
+  }, [good, neutral, bad, total]);
 
   return (
     <Box>
       <Section title="Please leave your feedback">
         <FeedbackOptions
           options={['good', 'neutral', 'bad']}
-          // onLeaveFeedback={leaveFeedback}
+          onLeaveFeedback={leaveFeedback}
         />
       </Section>
 
-      {/* <Section title="Statistics">
+      <Section title="Statistics">
         {total > 0 ? (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
             total={total}
-            positivePercentage={positivePercentage}
+            // positivePercentage={positivePercentage}
           />
         ) : (
           <h2>There is no feedback</h2>
         )}
-      </Section> */}
+      </Section>
     </Box>
   );
 };
