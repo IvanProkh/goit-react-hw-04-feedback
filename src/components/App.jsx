@@ -12,12 +12,9 @@ const App = () => {
   const [bad, setBad] = useState(0);
 
   const [total, setTotal] = useState(0);
-
-  console.log('work');
+  const [percentage, setPercentage] = useState(0);
 
   const leaveFeedback = options => {
-    console.log(options);
-
     switch (options) {
       case 'good':
         setGood(good + 1);
@@ -31,17 +28,14 @@ const App = () => {
       default:
         return;
     }
-
-    // if (options === good) {
-    //   setGood(options + 1);
-    // }
   };
 
   useEffect(() => {
-    // total = good + neutral + bad;
     setTotal(good + neutral + bad);
     console.log(total);
-  }, [good, neutral, bad, total]);
+    setPercentage(Math.round((good / total) * 100));
+    console.log(percentage);
+  }, [good, neutral, bad, total, percentage]);
 
   return (
     <Box>
@@ -59,7 +53,7 @@ const App = () => {
             neutral={neutral}
             bad={bad}
             total={total}
-            // positivePercentage={positivePercentage}
+            positivePercentage={percentage}
           />
         ) : (
           <h2>There is no feedback</h2>
