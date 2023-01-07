@@ -16,7 +16,7 @@ export const Button = styled.button`
   background: #111;
   cursor: pointer;
   position: relative;
-  border-radius: 10px;
+  border-radius: 25px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -27,9 +27,9 @@ export const Button = styled.button`
   text-transform: uppercase;
 
   &:hover {
-    background: #753bbd;
-    color: white;
-
+    /* background: #753bbd; */
+    /* color: white; */
+    transition: 0.3s;
     transform: scale(1.2);
   }
 

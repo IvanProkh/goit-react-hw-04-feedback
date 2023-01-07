@@ -1,9 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Title } from './Section.styled';
 
-const Section = ({ title, children }) => {
+export const Section = ({ title, children }) => {
   return (
     <div>
       <Title>{title}</Title>
@@ -16,5 +15,3 @@ Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node,
 };
-
-export default Section;

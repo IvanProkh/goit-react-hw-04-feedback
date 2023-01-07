@@ -2,11 +2,11 @@
 import { useState, useEffect } from 'react';
 import { Box } from './App.styled';
 
-import Statistics from './Statistics/Statistics';
-import Section from './Section/Section';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import { Statistics } from './Statistics/Statistics';
+import { Section } from './Section/Section';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 
-const App = () => {
+export default function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
@@ -17,13 +17,13 @@ const App = () => {
   const leaveFeedback = options => {
     switch (options) {
       case 'good':
-        setGood(good + 1);
+        setGood(prevState => prevState + 1);
         break;
       case 'neutral':
-        setNeutral(neutral + 1);
+        setNeutral(prevState => prevState + 1);
         break;
       case 'bad':
-        setBad(bad + 1);
+        setBad(prevState => prevState + 1);
         break;
       default:
         return;
@@ -61,6 +61,4 @@ const App = () => {
       </Section>
     </Box>
   );
-};
-
-export default App;
+}

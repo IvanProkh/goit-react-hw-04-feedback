@@ -10,15 +10,17 @@ export const Box = styled.div`
   margin: 20px;
   padding: 20px;
 
-  border: 2px solid black;
+  background: #8470ff;
+
+  /* border: 2px solid black; */
   border-radius: 35px;
 
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   &:hover {
-    background: #753bbd;
-    color: white;
-    transition: opacity 0.45s ease, transform 0.1s ease;
-    transform: scale(1.02);
+    /* background: #8470ff; */
+    /* color: white; */
+    /* transition: opacity 0.45s ease, transform 0.1s ease;
+    transform: scale(1.02); */
   }
 `;
